@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>焼肉 沖縄 | 那覇店</title>
+
+  <!-- ===== Google Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- ===== Tailwind CDN ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serifjp: ['"Noto Serif JP"', 'serif'],
+            sansjp : ['"Noto Sans JP"', 'sans-serif'],
+            title  : ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            primary: '#b22222',      /* 見出しの赤 (お好みで調整) */
+            paper  : '#f5f5f5',      /* 和紙風背景 */
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 和紙の質感を軽く付与 */
+    .paper-bg { background: url('https://www.transparenttextures.com/patterns/paper-1.png'); }
+  </style>
+</head>
+
+<body class="font-sansjp text-gray-800 antialiased">
+
+<!-- ========== Header ========== -->
+<header class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2">
+      <img src="https://dummyimage.com/120x28/b22222/ffffff&text=OKINAWA" alt="沖縄ロゴ" class="h-7 w-auto">
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 text-sm">
+      <a href="#about"   class="hover:text-primary">個室・店内</a>
+      <a href="#dinner"  class="hover:text-primary">ディナーメニュー</a>
+      <a href="#lunch"   class="hover:text-primary">ランチ</a>
+      <a href="#access"  class="hover:text-primary">営業時間・アクセス</a>
+      <a href="#sns"     class="hover:text-primary">Instagram</a>
+      <a href="https://www.hotpepper.jp/" class="bg-primary text-white px-4 py-2 rounded font-medium shadow hover:opacity-90">
+        予約する
+      </a>
+    </nav>
+
+    <!-- Hamburger -->
+    <button id="hamburger" class="md:hidden focus:outline-none">
+      <span class="sr-only">Open menu</span>
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+
+</header>
+
+<!-- Full-screen overlay menu -->
+<div id="mobileMenu" class="fixed inset-0 hidden z-50 bg-white/30 backdrop-blur-md flex items-center justify-center">
+  <!-- Close Button -->
+  <button id="closeMenu" class="absolute top-4 right-4 z-50">
+    <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <!-- Centered Nav -->
+  <nav class="flex flex-col items-center text-lg gap-8 bg-white px-6 py-8 rounded shadow-xl max-w-[90%] w-full sm:w-auto text-center">
+    <a href="#about"   class="menu-link text-black hover:text-primary">個室・店内</a>
+    <a href="#dinner"  class="menu-link text-black hover:text-primary">ディナーメニュー</a>
+    <a href="#lunch"   class="menu-link text-black hover:text-primary">ランチ</a>
+    <a href="#access"  class="menu-link text-black hover:text-primary">営業時間・アクセス</a>
+    <a href="#sns"     class="menu-link text-black hover:text-primary">Instagram</a>
+    <a href="https://www.hotpepper.jp/"
+       class="bg-primary text-white px-6 py-3 rounded font-medium shadow hover:opacity-90">
+      予約する
+    </a>
+  </nav>
+</div>
+
+
+<main class="pt-[64px] md:pt-[72px]">
+
+  <!-- ========== Hero ========== -->
+  <section class="h-[60vh] md:h-screen relative">
+    <img src="https://restaurant.img-ikyu.com/rsDatas/rsData121000/r120887/orig/120887ga10000255.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+         alt="個室イメージ" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4 space-y-6">
+      <h1 class="font-title text-3xl sm:text-5xl tracking-wide">焼肉 沖縄 那覇店</h1>
+      <p class="max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+        厳選された黒毛和牛を、趣ある個室空間で──<br class="hidden sm:inline">
+        接待や記念日に最適な大人の隠れ家です。
+      </p>
+      <a href="tel:000-123-4567"
+         class="bg-primary text-white font-medium px-6 py-3 rounded shadow hover:opacity-90 transition">
+        お電話で予約
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== About / Rooms ========== -->
+  <section id="about" class="paper-bg py-16">
+    <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
+      <h2 class="font-title text-2xl sm:text-3xl text-primary mb-4">趣き溢れる個室</h2>
+      <p class="font-serifjp leading-relaxed">
+        ゆったりと寛げる個室は 2 〜 12 名様まで対応。<br>
+        接待・会食・記念日など、様々なシーンでご利用いただけます。<br>
+        美しい夜景とともに極上の焼肉をご堪能ください。
+      </p>
+
+      <!-- Interior gallery -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+        <img src="https://restaurant.img-ikyu.com/rsDatas/rsData108000/r107743/orig/107743ga10000003.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+             alt="個室1" class="w-full h-56 object-cover rounded">
+        <img src="https://restaurant.img-ikyu.com/rsDatas/rsData108000/r107743/orig/107743ga10000003.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+             alt="個室2" class="w-full h-56 object-cover rounded">
+        <img src="https://restaurant.img-ikyu.com/rsDatas/rsData108000/r107743/orig/107743ga10000003.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+             alt="個室3" class="w-full h-56 object-cover rounded">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Dinner Menu ========== -->
+  <section id="dinner" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-title text-2xl sm:text-3xl text-center text-primary mb-12">ディナーメニュー</h2>
+
+      <!-- Item grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <!-- Item -->
+        <figure class="space-y-2">
+          <img src="https://restaurant.img-ikyu.com/rsDatas/rsData125000/r124973/orig/124973ga10000009.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+               alt="牛ハラミ" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>牛ハラミ</span><span>¥1,800</span>
+          </figcaption>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            ジューシーで旨味たっぷりのハラミを特製ダレで。
+          </p>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://restaurant.img-ikyu.com/rsDatas/rsData125000/r124973/orig/124973ga10000009.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+               alt="上カルビ" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>上カルビ</span><span>¥2,400</span>
+          </figcaption>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            霜降りの甘さが際立つ一番人気の部位。
+          </p>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://restaurant.img-ikyu.com/rsDatas/rsData125000/r124973/orig/124973ga10000009.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+               alt="特選赤身" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>特選赤身</span><span>¥2,200</span>
+          </figcaption>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            あっさりしながらも濃厚な味わい。
+          </p>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://restaurant.img-ikyu.com/rsDatas/rsData125000/r124973/orig/124973ga10000009.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1600&h=800"
+               alt="和牛タタキ" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>和牛タタキ</span><span>¥1,600</span>
+          </figcaption>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            表面を軽く炙り、わさび醤油でさっぱりと。
+          </p>
+        </figure>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="https://ushigoro.com/menu/food_ginza_namiki.pdf"
+           class="inline-block border border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition text-sm">
+          フルメニューはこちら (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Lunch Menu ========== -->
+  <section id="lunch" class="py-16 paper-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="font-title text-2xl sm:text-3xl text-center text-primary mb-12">ランチメニュー</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <figure class="space-y-2">
+          <img src="https://www.hotpepper.jp/IMGH/69/66/P044576966/P044576966_480.jpg"
+               alt="炙り牛ユッケ丼" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>炙り牛ユッケ丼</span><span>¥1,200</span>
+          </figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://www.hotpepper.jp/IMGH/69/66/P044576966/P044576966_480.jpg"
+               alt="牛ロースステーキ丼" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>牛ロースステーキ丼</span><span>¥1,250</span>
+          </figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://www.hotpepper.jp/IMGH/69/66/P044576966/P044576966_480.jpg"
+               alt="炙り牛ユッケ丼" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>炙り牛ユッケ丼</span><span>¥1,200</span>
+          </figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <img src="https://www.hotpepper.jp/IMGH/69/66/P044576966/P044576966_480.jpg"
+               alt="牛ロースステーキ丼" class="w-full h-56 object-cover rounded">
+          <figcaption class="flex justify-between items-center text-sm">
+            <span>牛ロースステーキ丼</span><span>¥1,250</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+
+      <div class="text-center mt-10">
+        <a href="https://ushigoro.com/menu/food_ginza_namiki.pdf"
+           class="inline-block border border-primary text-primary px-6 py-3 rounded hover:bg-primary hover:text-white transition text-sm">
+          ランチメニュー (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Access ========= -->
+  <section id="access" class="py-16">
+    <div class="max-w-4xl mx-auto px-4 space-y-10">
+      <h2 class="font-title text-2xl sm:text-3xl text-center text-primary">営業時間・アクセス</h2>
+
+      <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 text-sm leading-relaxed">
+        <div>
+          <dt class="font-medium mb-1">所在地</dt>
+          <dd>〒000-0000 沖縄県那覇市宇栄原1-2-3 11F</dd>
+        </div>
+
+        <div>
+          <dt class="font-medium mb-1">電話番号</dt>
+          <dd><a href="tel:000-123-4567" class="hover:underline">000-123-4567</a></dd>
+        </div>
+
+        <div>
+          <dt class="font-medium mb-1">営業時間</dt>
+          <dd>
+            ランチ 11:30-14:00 (L.O 13:30)<br>
+            ディナー 17:00-23:00 (L.O 22:00)
+          </dd>
+        </div>
+
+        <div>
+          <dt class="font-medium mb-1">定休日</dt>
+          <dd>不定休 (月 1 回)</dd>
+        </div>
+
+        <div>
+          <dt class="font-medium mb-1">席数</dt>
+          <dd>個室 7 室 / 全 20 席</dd>
+        </div>
+
+        <div>
+          <dt class="font-medium mb-1">アクセス</dt>
+          <dd>「国際通り」から徒歩 5 分</dd>
+        </div>
+      </dl>
+
+      <!-- Google Map -->
+      <div class="w-full h-72 rounded overflow-hidden shadow">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.471087830516!2d130.4038474152058!3d33.59293068073505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35419192b5973dbd%3A0x73df4b1c708b0ca1!2z5Lit5bqX!5e0!3m2!1sja!2sjp!4v1684345660000"
+          width="100%" height="100%" style="border:0;" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Instagram ========= -->
+  <section id="sns" class="paper-bg py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-title text-2xl sm:text-3xl text-center text-primary mb-8">Instagram</h2>
+
+      <div class="flex gap-4 overflow-x-auto pb-4">
+        <!-- 8 サムネイル例 -->
+        <template id="insta-template">
+          <a href="#" class="flex-shrink-0">
+            <img src="https://ryuen.biz/cdn/shop/files/20221214_1016.jpg?v=1688541648&width=500"
+                 alt="insta" class="w-40 h-40 object-cover rounded hover:opacity-80 transition">
+          </a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== Footer ========== -->
+<footer class="bg-gray-100 text-xs text-gray-500">
+  <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row md:justify-between gap-6">
+    <div>
+      <p class="font-medium text-gray-800">焼肉 沖縄 那覇店</p>
+      <p>〒000-0000 沖縄県那覇市宇栄原1-2-3 11F</p>
+      <p>TEL: 000-123-4567</p>
+    </div>
+
+    <div class="space-y-1">
+      <a href="#" class="hover:underline">プライバシーポリシー</a><br>
+      <a href="#" class="hover:underline">特定商取引法に基づく表記</a><br>
+      <a href="#" class="hover:underline">採用情報</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://www.instagram.com/sora.nakaza/" aria-label="Instagram">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.663 0 3 1.337 3 3v10c0 1.663-1.337 3-3 3H7c-1.663 0-3-1.337-3-3V7c0-1.663 1.337-3 3-3h10zM12 7.5A4.5 4.5 0 1 1 7.5 12 4.505 4.505 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.503 2.503 0 0 0 12 9.5zm4.75-.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/" aria-label="Facebook">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H18l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <p class="text-center pb-4">&copy; 2025 NAHA. All Rights Reserved.</p>
+</footer>
+
+<!-- ========== Scripts ========== -->
+<script>
+  // モバイルメニュー制御
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu  = document.getElementById('closeMenu');
+  const links = document.querySelectorAll('.menu-link');
+
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  closeMenu .addEventListener('click', toggleMenu);
+  links.forEach(l => l.addEventListener('click', toggleMenu));
+
+  // Instagram ダミー画像 8 枚生成
+  const instaWrap = document.querySelector('#sns .flex');
+  const tmpl = document.getElementById('insta-template');
+  for (let i = 0; i < 8; i++) {
+    instaWrap.appendChild(tmpl.content.cloneNode(true));
+  }
+</script>
+
+</body>
+</html>
